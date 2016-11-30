@@ -1,0 +1,11 @@
+<synth>
+    <style id="basicPanelStyle">
+        <opaque value="true" />
+        <state>
+            <color value="WHITE" type="BACKGROUND" />
+        </state>
+    
+    </style>
+    <bind key="Panel" type="region">
+    </bind>
+</synth>
