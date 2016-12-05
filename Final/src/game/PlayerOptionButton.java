@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
  */
 public class PlayerOptionButton extends JToggleButton {
 
-   private final static Color BORDER_COLOR = new Color(192, 197, 209);
+   private final Color BORDER_COLOR = new Color(192, 197, 209);
 
    public PlayerOptionButton(String label, String toolTip) {
       super(label);

@@ -16,11 +16,11 @@ public class GameModel extends Observable {
    /* Field size */
    private Rectangle field;
    private Rectangle endZone;
-   private final static double FIELD_START_X_SCALE = 0.025;
-   private final static double FIELD_START_Y_SCALE = 0.054;
-   private final static double FIELD_WIDTH_SCALE = 0.9475;
-   private final static double FIELD_HEIGHT_SCALE = 0.8891;
-   private final static double END_ZONE_X_SCALE = 0.895;
+   private final double FIELD_START_X_SCALE = 0.025;
+   private final double FIELD_START_Y_SCALE = 0.054;
+   private final double FIELD_WIDTH_SCALE = 0.9475;
+   private final double FIELD_HEIGHT_SCALE = 0.8891;
+   private final double END_ZONE_X_SCALE = 0.895;
 
    /* Score */
    private int touchdownScore;
@@ -30,8 +30,8 @@ public class GameModel extends Observable {
    private Calendar clock;
 
    /* Speed */
-   private final static int[] SPEEDS = {1000, 500, 200, 100, 50};
-   private final static int DEFAULT_SPEED = 2;
+   private final int[] SPEEDS = {1000, 500, 200, 100, 50};
+   private final int DEFAULT_SPEED = 2;
    private int speed;
 
    /* Threshold at which a runningback trait is triggered */

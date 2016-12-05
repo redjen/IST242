@@ -13,14 +13,14 @@ import javax.swing.text.BadLocationException;
  */
 public class MainAppPanel extends JPanel {
 
-   private final static Color BACKGROUND_COLOR = new Color(139, 138, 136);
+   private final Color BACKGROUND_COLOR = new Color(139, 138, 136);
 
-   ClockView clockView;
-   ScoreView scoreView;
-   GameView gameView;
-   PlayerOptionsView optionsView;
-   SpeedPanel speedView;
-   InfoPanel infoView;
+   private ClockView clockView;
+   private ScoreView scoreView;
+   private GameView gameView;
+   private PlayerOptionsView optionsView;
+   private SpeedPanel speedView;
+   private InfoPanel infoView;
 
    /**
     * Creates a new MainAppPanel

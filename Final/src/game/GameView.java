@@ -14,8 +14,8 @@ import javax.imageio.ImageIO;
  */
 public class GameView extends BasePanel {
 
-   private static final String BACKGROUND_IMAGE = "resources/field.png";
-   private static final String RAINYTOWN_IMAGE = "resources/field_puget_sound.png";
+   private final String BACKGROUND_IMAGE = "resources/field.png";
+   private final String RAINYTOWN_IMAGE = "resources/field_puget_sound.png";
 
    private final GameModel gameModel;
    

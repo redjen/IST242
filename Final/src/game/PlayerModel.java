@@ -10,11 +10,11 @@ import java.awt.Rectangle;
 public class PlayerModel {
    // TODO perhaps this should implement button model and then the view could use it directly
 
-   private final static int DEFAULT_MOVE_DISTANCE = 5;
-   private final static int DEFAULT_WIDTH = 50;
-   private final static int DEFAULT_HEIGHT = 50;
-   private final static int SMALL_WIDTH = 40;
-   private final static int SMALL_HEIGHT = 40;
+   private final int DEFAULT_MOVE_DISTANCE = 5;
+   private final int DEFAULT_WIDTH = 50;
+   private final int DEFAULT_HEIGHT = 50;
+   private final int SMALL_WIDTH = 40;
+   private final int SMALL_HEIGHT = 40;
 
    private String iconLocation;
    private Rectangle bounds;

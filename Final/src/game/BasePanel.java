@@ -17,9 +17,9 @@ public abstract class BasePanel extends JPanel {
 
     private GridBagConstraints gbc;
 
-    private final static Color DEFAULT_BACKGROUND_COLOR = new Color(213, 220, 220);
-    private final static Color DEFAULT_BORDER_COLOR = new Color(96, 96, 102);
-    private final static Color DEFAULT_LABEL_COLOR = new Color(96, 96, 102);
+    private final Color DEFAULT_BACKGROUND_COLOR = new Color(213, 220, 220);
+    private final Color DEFAULT_BORDER_COLOR = new Color(96, 96, 102);
+    private final Color DEFAULT_LABEL_COLOR = new Color(96, 96, 102);
 
 
     public BasePanel(String name) {
