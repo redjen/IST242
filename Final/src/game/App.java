@@ -18,7 +18,7 @@ public class App {
       ScoreView scoreView = new ScoreView();
       GameView gameView = new GameView(gameModel);
       PlayerOptionsView optionsView = new PlayerOptionsView();
-      SpeedPanel speedView = new SpeedPanel();
+      GameOptionsView speedView = new GameOptionsView();
       InfoPanel infoView = new InfoPanel();
 
       // initialize UI
