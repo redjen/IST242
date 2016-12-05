@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
@@ -28,6 +29,7 @@ public class GameController {
    private final GameView gameView;
    private final PlayerOptionsView optionsView;
    private final GameOptionsView speedView;
+   private final MessageView messageView;
 
    private PlayerView runningbackView;
    private RunningbackModel runningbackModel;
@@ -51,6 +53,7 @@ public class GameController {
       this.optionsView = optionsView;
       this.speedView = speedView;
       this.playerOptionsController = playerOptionsController;
+      this.messageView = new MessageView();
 
       // initialize timers
       initClockTimer();
@@ -61,7 +64,7 @@ public class GameController {
 
       // initialize the speed controls
       initSpeedControl();
-      
+
       // initialize the challenge mode control
       initChallengeControl();
 
@@ -69,6 +72,7 @@ public class GameController {
       initPlayers();
 
       gameIsInProgress = false;
+      messageView.showWelcomeMessage();
    }
 
    /**
@@ -228,21 +232,25 @@ public class GameController {
          }
       });
    }
-   
+
    /**
     * Initializes the challenge mode view.
     */
    private void initChallengeControl() {
-      
+
       speedView.getChallengeButton().addItemListener(new ItemListener() {
          @Override
          public void itemStateChanged(ItemEvent e) {
-            gameModel.setChallengeMode((e.getStateChange() == ItemEvent.SELECTED));
+            boolean state = (e.getStateChange() == ItemEvent.SELECTED);
+            gameModel.setChallengeMode(state);
+            
+            if(state) {
+               
+            }
          }
       });
-      
+
    }
-  
 
    /**
     * Creates the players and places them on the field.
@@ -280,7 +288,7 @@ public class GameController {
 
    /**
     * Places the players in their start positions on the field.
-    * 
+    *
     */
    private void resetPlayerPostions() {
       // calculate where the players should be placed
@@ -309,7 +317,7 @@ public class GameController {
 
    /**
     * Pauses the game.
-    * 
+    *
     * The clock will not advance and the player cannot be moved while the
     * game is paused.
     */
@@ -328,7 +336,7 @@ public class GameController {
 
    /**
     * Resets the game.
-    * 
+    *
     * The players will be moved to their initial positions and the game will
     * be paused.
     */
@@ -336,6 +344,30 @@ public class GameController {
       pauseGame();
       resetPlayerPostions();
       gameIsInProgress = true;
+   }
+
+   /**
+    * Shows a pop-up message at the start of the game.
+    */
+   private void showWelcomeMessage() {
+
+      JOptionPane.showMessageDialog(null,
+              "<html><body style='width: 500px'><p>Welcome to my final project!</p><p></p>"
+              + "<p>I've added a challenge mode in which the goal is to score as many "
+              + "touchdowns as possible before being tackled.</p><p></p>"
+              + "<p>The game will also now keep a high score log that persists "
+              + "across sessions.</p></body></html>",
+              "Welcome!", JOptionPane.INFORMATION_MESSAGE);
+   }
+
+   /**
+    * Shows the game over message and prompts the user for their name.
+    *
+    * @return the user's input
+    */
+   private String showGameOverMessage() {
+      String name = JOptionPane.showInputDialog(null, "Please enter your name.", "Game over!", 0);
+      return name;
    }
 
 }
