@@ -19,7 +19,7 @@ public class MainAppPanel extends JPanel {
    private ScoreView scoreView;
    private GameView gameView;
    private PlayerOptionsView optionsView;
-   private GameOptionsView speedView;
+   private GameOptionsView gameOptionsView;
    private InfoPanel infoView;
 
    /**
@@ -27,7 +27,7 @@ public class MainAppPanel extends JPanel {
     *
     */
    MainAppPanel(ClockView clockView, ScoreView scoreView, GameView gameView,
-            PlayerOptionsView optionsView, GameOptionsView speedView, InfoPanel infoView) throws BadLocationException {
+            PlayerOptionsView optionsView, GameOptionsView gameOptionsView, InfoPanel infoView) throws BadLocationException {
 
       super();
 
@@ -43,7 +43,7 @@ public class MainAppPanel extends JPanel {
       this.scoreView = scoreView;
       this.gameView = gameView;
       this.optionsView = optionsView;
-      this.speedView = speedView;
+      this.gameOptionsView = gameOptionsView;
       this.infoView = infoView;
 
       gbc.anchor = GridBagConstraints.CENTER;
@@ -61,7 +61,7 @@ public class MainAppPanel extends JPanel {
 
       gbc.gridx = 2;
       gbc.gridy = 0;
-      add(this.speedView, gbc);
+      add(this.gameOptionsView, gbc);
 
       gbc.gridx = 3;
       gbc.gridy = 0;
