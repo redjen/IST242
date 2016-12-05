@@ -54,10 +54,15 @@ public class GameHistoryRecord implements Comparable<GameHistoryRecord> {
               DATE_FORMAT.format(date.getTime()));
    }
    
-   
+   /**
+    * Sorts records by score descending.
+    * 
+    * @param o
+    * @return 
+    */
    @Override
    public int compareTo(GameHistoryRecord o) {
-      return Integer.compare(this.score, o.score);
+      return Integer.compare(o.score, this.score);
    }
    
    
