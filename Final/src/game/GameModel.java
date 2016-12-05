@@ -34,6 +34,9 @@ public class GameModel extends Observable {
    private final int DEFAULT_SPEED = 2;
    private int speed;
 
+   /* Mode */
+   private boolean challengeMode;
+
    /* Threshold at which a runningback trait is triggered */
    private final int TRAIT_TRIGGER_THRESHOLD = 95;
 
@@ -44,6 +47,7 @@ public class GameModel extends Observable {
 
       field = new Rectangle();
       endZone = new Rectangle();
+      challengeMode = false;
 
       // initialize the score to 0
       resetScore();
@@ -54,6 +58,24 @@ public class GameModel extends Observable {
 
       // set the game speed to the default
       speed = SPEEDS[DEFAULT_SPEED];
+   }
+
+   /**
+    * Tests whether challenge mode is enabled.
+    *
+    * @return true if enabled, false otherwise
+    */
+   public boolean isChallengeMode() {
+      return challengeMode;
+   }
+
+   /**
+    * Sets challenge mode.
+    *
+    * @param challengeMode true for enabled, false for disabled
+    */
+   public void setChallengeMode(boolean challengeMode) {
+      this.challengeMode = challengeMode;
    }
 
    /**

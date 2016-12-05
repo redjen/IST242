@@ -11,7 +11,7 @@ import javax.swing.UIManager;
 public class MainAppFrame extends JFrame {
 
     public MainAppFrame(ClockView clockView, ScoreView scoreView, GameView gameView,
-            PlayerOptionsView optionsView, SpeedPanel speedView, InfoPanel infoView) throws HeadlessException {
+            PlayerOptionsView optionsView, GameOptionsView speedView, InfoPanel infoView) throws HeadlessException {
 
         super("The Tackle-Breaking Runningback");
 

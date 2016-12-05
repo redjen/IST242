@@ -2,6 +2,8 @@ package game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -25,7 +27,7 @@ public class GameController {
    private final ScoreView scoreView;
    private final GameView gameView;
    private final PlayerOptionsView optionsView;
-   private final SpeedPanel speedView;
+   private final GameOptionsView speedView;
 
    private PlayerView runningbackView;
    private RunningbackModel runningbackModel;
@@ -40,7 +42,7 @@ public class GameController {
    private static final Logger logger = Logger.getLogger("GameController");
 
    public GameController(GameModel gameModel, ClockView clockView, ScoreView scoreView,
-           GameView gameView, PlayerOptionsView optionsView, SpeedPanel speedView,
+           GameView gameView, PlayerOptionsView optionsView, GameOptionsView speedView,
            PlayerOptionsController playerOptionsController) {
       this.gameModel = gameModel;
       this.clockView = clockView;
@@ -59,6 +61,9 @@ public class GameController {
 
       // initialize the speed controls
       initSpeedControl();
+      
+      // initialize the challenge mode control
+      initChallengeControl();
 
       // initialize players
       initPlayers();
@@ -223,6 +228,21 @@ public class GameController {
          }
       });
    }
+   
+   /**
+    * Initializes the challenge mode view.
+    */
+   private void initChallengeControl() {
+      
+      speedView.getChallengeButton().addItemListener(new ItemListener() {
+         @Override
+         public void itemStateChanged(ItemEvent e) {
+            gameModel.setChallengeMode((e.getStateChange() == ItemEvent.SELECTED));
+         }
+      });
+      
+   }
+  
 
    /**
     * Creates the players and places them on the field.

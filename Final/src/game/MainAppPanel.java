@@ -19,7 +19,7 @@ public class MainAppPanel extends JPanel {
    private ScoreView scoreView;
    private GameView gameView;
    private PlayerOptionsView optionsView;
-   private SpeedPanel speedView;
+   private GameOptionsView speedView;
    private InfoPanel infoView;
 
    /**
@@ -27,7 +27,7 @@ public class MainAppPanel extends JPanel {
     *
     */
    MainAppPanel(ClockView clockView, ScoreView scoreView, GameView gameView,
-            PlayerOptionsView optionsView, SpeedPanel speedView, InfoPanel infoView) throws BadLocationException {
+            PlayerOptionsView optionsView, GameOptionsView speedView, InfoPanel infoView) throws BadLocationException {
 
       super();
 
