@@ -36,6 +36,10 @@ public class MessageView {
       String name = JOptionPane.showInputDialog(null, "Please enter your name.", "Game over!", 0);
       return name;
    }
+   
+   public void showTouchdownMessage() {
+      JOptionPane.showMessageDialog(null, "Touchdown!", "", JOptionPane.INFORMATION_MESSAGE);
+   }
 
    public void showChallengeModeStartMesage() {
       // TODO
