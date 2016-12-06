@@ -17,10 +17,17 @@ public class GameHistoryRecord implements Comparable<GameHistoryRecord> {
    private final String STRING_FORMAT = "%-10s%-5d%s";
    private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(("MM/dd/yyyy HH:mm:ss"));
 
-   public GameHistoryRecord(String name, int score, Calendar date) {
+   public GameHistoryRecord(String name, int score, Calendar gameDate) {
       this.name = name;
       this.score = score;
-      this.date = date;
+      
+      // I learned through unit testing that setting the date field to the 
+      // date object parameter can result in the date being changed if the 
+      // object is reused outside the class. The fix for this was to copy
+      // the calendar object's value to the field.
+      date = Calendar.getInstance(gameDate.getTimeZone());
+      date.setTime(gameDate.getTime());
+
    }
 
    /**
