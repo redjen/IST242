@@ -51,6 +51,7 @@ public class GameOptionsView extends BasePanel {
       speedControl.setMinimum(min);
       speedControl.setMaximum(max);
       speedControl.setMajorTickSpacing(levels);
+      speedControl.setFocusable(false);
    }
 
    /**
