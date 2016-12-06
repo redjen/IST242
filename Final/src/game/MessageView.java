@@ -9,17 +9,21 @@ import javax.swing.JOptionPane;
 public class MessageView {
 
    /**
-    * Shows a pop-up message at the start of the game.
+    * Shows a pop-up welcome message.
     */
    public void showWelcomeMessage() {
 
       JOptionPane.showMessageDialog(null,
               "<html><body style='width: 500px'><p>Welcome to my final project!</p><p></p>"
-              + "<p>I've added a challenge mode in which the goal is to score as many "
-              + "touchdowns as possible before being tackled.</p><p></p>"
-              + "<p>The game will also now keep a high score log that persists "
-              + "across sessions.</p><p></p>"
-              + "Press space to begin the game</body></html>",
+              + "<p>I've added the following features and improvements:</p>"
+              + "<ol>"
+              + "<li><b>Challenge mode:</b> score as many touchdowns as you can "
+              + "before you're tackled!</li>"
+              + "<li><b>High score log:</b> the game will now keep a history of "
+              + "the last 20 high scores.</li>"
+              + "<li><b>Unit tests:</b> the game history classes are now tested.</li>"
+              + "</ol>"
+              + "<p>Press space after dismissing this message to begin the game</p></body></html>",
               "Welcome!", JOptionPane.INFORMATION_MESSAGE);
    }
 
