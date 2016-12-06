@@ -12,8 +12,8 @@ public class GameHistoryException extends Exception {
       super(message);
    }
    
-   public GameHistoryException(Throwable cause) {
-      super(cause);
+   public GameHistoryException(String message, Throwable cause) {
+      super(message, cause);
    }
 
    public GameHistoryException() {
