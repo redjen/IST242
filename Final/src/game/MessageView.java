@@ -42,13 +42,11 @@ public class MessageView {
       if (newHighScore) {
 
          name = JOptionPane.showInputDialog(null,
-                 "<html><body>"
-                 + namePrompt
-                 + "<pre>" + topScores + "</pre>"
-                 + "</body></html>",
-                 title, 0);
+
+                 topScores,
+                 title + "Please enter your name to save", 0);
       } else {
-         JOptionPane.showMessageDialog(null, "", title, JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null, topScores, title, JOptionPane.INFORMATION_MESSAGE);
       }
       return name;
    }
