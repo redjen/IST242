@@ -16,11 +16,15 @@ public class GameHistoryModel {
 
    public GameHistoryModel() {
       
-      GameHistoryDAO dao = new GameHistoryDAO(HISTORY_FILE_PATH);
-      history = dao.getHistory();   
+      history = new ArrayList<>();
 
    }
 
+   public void loadHistory() {
+      GameHistoryDAO dao = new GameHistoryDAO(HISTORY_FILE_PATH);
+      history.addAll(dao.getHistory());
+   }
+   
    /**
     * Adds a new record to the history.
     *
@@ -45,7 +49,8 @@ public class GameHistoryModel {
     * @return complete history as an ArrayList sorted by high score descending
     */
    public ArrayList<GameHistoryRecord> getHistory() {
-      return history;
+      ArrayList<GameHistoryRecord> copy = new ArrayList<>(history);
+      return copy;
    }
    
    public void save() {
