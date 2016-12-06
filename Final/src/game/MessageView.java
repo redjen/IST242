@@ -30,32 +30,43 @@ public class MessageView {
    /**
     * Shows the game over message and prompts the user for their name.
     *
+    * @param newHighScore true if the user has a new high score
     * @param topScores Previous top scores
     * @return the user's input
     */
-   public String showGameOverMessage(String topScores) {
-      String name = JOptionPane.showInputDialog(null, 
-              "<html><body><p>Please enter your name.</p>"
-              + "<pre>" + topScores + "</pre>"
-              + "</body></html>",
-              "Game over!", 0);
+   public String showGameOverMessage(boolean newHighScore, String topScores) {
+      String title = "Game over!";
+      String namePrompt = "<p>Please enter your name to save your score:</p>";
+      String name = null;
+
+      if (newHighScore) {
+
+         name = JOptionPane.showInputDialog(null,
+                 "<html><body>"
+                 + namePrompt
+                 + "<pre>" + topScores + "</pre>"
+                 + "</body></html>",
+                 title, 0);
+      } else {
+         JOptionPane.showMessageDialog(null, "", title, JOptionPane.INFORMATION_MESSAGE);
+      }
       return name;
    }
-   
+
    /**
     * Shows the game over message and prompts the user for their name.
     *
+    * @param newHighScore true if the user has a new high score
     * @return the user's input
     */
-   public String showGameOverMessage() {
-      return showGameOverMessage("");
+   public String showGameOverMessage(boolean newHighScore) {
+      return showGameOverMessage(newHighScore, "");
    }
-   
-   
+
    public void showTouchdownMessage() {
       JOptionPane.showMessageDialog(null, "Touchdown!", "", JOptionPane.INFORMATION_MESSAGE);
    }
-   
+
    public void showTackleMessage() {
       JOptionPane.showMessageDialog(null, "Tackle!", "", JOptionPane.INFORMATION_MESSAGE);
    }

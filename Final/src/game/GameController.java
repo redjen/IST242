@@ -371,8 +371,10 @@ public class GameController {
       Calendar cal = Calendar.getInstance();
       int score = gameModel.getTouchdownScore();
       String history = gameHistoryController.getHistoryAsString();
+      boolean newScore = (score >= gameHistoryController.getHighScore());
       
-      String name = messageView.showGameOverMessage(history);
+      
+      String name = messageView.showGameOverMessage(newScore, history);
       
       if (name != null && !name.equals("")) {
          gameHistoryController.addHighScore(name, score, cal);

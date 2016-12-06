@@ -23,6 +23,19 @@ public class GameHistoryModel {
       this(DEFAULT_HISTORY_FILE_PATH);
 
    }
+   
+   /**
+    * Returns the high score.
+    * 
+    * @return the highest saved score
+    */
+   public int getHighScore() {
+      if (history.size() > 0) {
+         return history.get(0).getScore();
+      } else {
+         return 0;
+      }
+   }
 
    public GameHistoryModel(String historyFilePath) {
       this.historyFilePath = historyFilePath;

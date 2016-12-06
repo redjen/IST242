@@ -24,6 +24,10 @@ public class GameHistoryController {
       
    }
    
+   public int getHighScore() {
+      return history.getHighScore();
+   }
+   
    public String getHistoryAsString() {
       String historyList = "";
       historyList = history.toString();
