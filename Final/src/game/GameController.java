@@ -218,7 +218,6 @@ public class GameController {
       gameView.addKeyListener(new KeyAdapter() {
          @Override
          public void keyPressed(KeyEvent e) {
-            logger.info(String.format("Key typed: %c", e.getKeyChar()));
             keyHandler(e.getKeyCode());
          }
       });
@@ -370,11 +369,11 @@ public class GameController {
    private void resetGameChallenge() {
       Calendar cal = Calendar.getInstance();
       int score = gameModel.getTouchdownScore();
-      String history = gameHistoryController.getHistoryAsString();
       boolean newScore = (score >= gameHistoryController.getHighScore());
       
       
-      String name = messageView.showGameOverMessage(newScore, history);
+      String name = messageView.showGameOverMessage(newScore, 
+              gameHistoryController.getHistoryAsHTML());
       
       if (name != null && !name.equals("")) {
          gameHistoryController.addHighScore(name, score, cal);
