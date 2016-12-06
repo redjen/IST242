@@ -40,14 +40,20 @@ public class GameHistoryDAO {
 
       try {
          historyFile = new File(filePath);
-         in = new Scanner(historyFile);
-         in = in.useDelimiter(DELIMITER);
+                 
+         if (historyFile.exists()) {
+            in = new Scanner(historyFile);
+            in = in.useDelimiter(DELIMITER);
 
-         while (in.hasNextLine()) {
-            GameHistoryRecord rec = readRecord(in);
-            history.add(rec);
-            in.nextLine();
+            while (in.hasNextLine()) {
+               GameHistoryRecord rec = readRecord(in);
+               history.add(rec);
+               in.nextLine();
+            }
          }
+         
+         // if the hisotry file doesn't exist, skip and return the empty
+         // arraylist
 
       } catch (GameHistoryException ex) {
          logger.warning(ex.getMessage());
@@ -60,7 +66,6 @@ public class GameHistoryDAO {
             in.close();
          }
       }
-
       return history;
    }
 
@@ -137,7 +142,7 @@ public class GameHistoryDAO {
       Calendar date = Calendar.getInstance();
 
       try {
-         
+
 // user name
          if (in.hasNext()) {
             name = in.next();

@@ -61,6 +61,12 @@ public class GameHistoryDAOTest {
       
 
    }
+   
+   @Test public void testGetHistoryFNF() {
+      GameHistoryDAO dao = new GameHistoryDAO("nope");
+      ArrayList<GameHistoryRecord> records = dao.getHistory();
+      assertEquals(0, records.size());
+   }
 
    @Test
    public void testWriteRecord() throws IOException {
