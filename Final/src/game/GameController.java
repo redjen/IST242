@@ -1,7 +1,6 @@
 package game;
 
 import gamehistory.GameHistoryController;
-import gamehistory.GameHistoryRecord;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -13,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
@@ -369,11 +367,11 @@ public class GameController {
    private void resetGameChallenge() {
       Calendar cal = Calendar.getInstance();
       int score = gameModel.getTouchdownScore();
+      String history = gameHistoryController.getHistoryAsString();
       boolean newScore = (score >= gameHistoryController.getHighScore());
       
       
-      String name = messageView.showGameOverMessage(newScore, 
-              gameHistoryController.getHistoryAsHTML());
+      String name = messageView.showGameOverMessage(newScore, history);
       
       if (name != null && !name.equals("")) {
          gameHistoryController.addHighScore(name, score, cal);
