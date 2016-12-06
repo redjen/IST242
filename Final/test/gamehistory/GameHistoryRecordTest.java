@@ -1,5 +1,6 @@
 package gamehistory;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,6 +13,8 @@ import static org.junit.Assert.*;
 public class GameHistoryRecordTest {
    
    private static GameHistoryRecord ghr;
+   private final String STRING_FORMAT = "%30s%5d%s";
+   private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(("MM/dd/yyyy HH:mm:ss"));
    
    public GameHistoryRecordTest() {
    }
@@ -45,10 +48,15 @@ public class GameHistoryRecordTest {
 
    @Test
    public void testToString() {
+      String expected = "Test      100  02/02/2016 03:04:05";
+      assertEquals(expected, ghr.toString());
    }
 
    @Test
    public void testCompareTo() {
+      GameHistoryRecord ghr2 = new GameHistoryRecord("test 2", 500, Calendar.getInstance());
+      assertEquals(true, ghr.compareTo(ghr2) >= 1);
+      assertEquals(true, ghr2.compareTo(ghr) < 0);
    }
    
 }
