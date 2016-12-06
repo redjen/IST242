@@ -42,7 +42,7 @@ public class GameHistoryModel {
    /**
     * Returns the complete history
     *
-    * @return complete history as an ArrayList
+    * @return complete history as an ArrayList sorted by high score descending
     */
    public ArrayList<GameHistoryRecord> getHistory() {
       return history;
