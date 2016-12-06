@@ -40,6 +40,7 @@ public class GameModel extends Observable {
    /* Threshold at which a runningback trait is triggered */
    private final int TRAIT_TRIGGER_THRESHOLD = 95;
 
+   private final String LOG_MESSAGE_FORMAT = "%s changed to %b";
    private final static Logger logger = Logger.getLogger("GameModel");
 
    public GameModel() {
@@ -76,6 +77,7 @@ public class GameModel extends Observable {
     */
    public void setChallengeMode(boolean challengeMode) {
       this.challengeMode = challengeMode;
+      logger.info(String.format(LOG_MESSAGE_FORMAT, "Challenge mode", challengeMode));
    }
 
    /**
