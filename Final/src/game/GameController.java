@@ -361,6 +361,12 @@ public class GameController {
       gameIsInProgress = true;
    }
 
+   /**
+    * Resets the game when challenge mode is enabled.
+    * 
+    * The player will be prompted to enter their name to save their new
+    * high score, then resets the players, clock, and score.
+    */
    private void resetGameChallenge() {
       Calendar cal = Calendar.getInstance();
       int score = gameModel.getTouchdownScore();
