@@ -13,7 +13,7 @@ public class GameHistoryRecord implements Comparable<GameHistoryRecord> {
    
    private String name;
    private int score;
-   private Calendar date;
+   private final Calendar date;
    private final String STRING_FORMAT = "%-10s%-5d%s";
    private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(("MM/dd/yyyy HH:mm:ss"));
 
@@ -25,8 +25,8 @@ public class GameHistoryRecord implements Comparable<GameHistoryRecord> {
       // date object parameter can result in the date being changed if the 
       // object is reused outside the class. The fix for this was to copy
       // the calendar object's value to the field.
-      date = Calendar.getInstance(gameDate.getTimeZone());
-      date.setTime(gameDate.getTime());
+      date = (Calendar) gameDate.clone();
+      
 
    }
 

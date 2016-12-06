@@ -1,6 +1,5 @@
 package gamehistory;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,15 +12,14 @@ import static org.junit.Assert.*;
 public class GameHistoryRecordTest {
    
    private static GameHistoryRecord ghr;
-   private final String STRING_FORMAT = "%30s%5d%s";
-   private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(("MM/dd/yyyy HH:mm:ss"));
+   private static Calendar cal;
    
    public GameHistoryRecordTest() {
    }
    
    @BeforeClass
    public static void setUpClass() {
-      Calendar cal = Calendar.getInstance();
+      cal = Calendar.getInstance();
       cal.set(2016, 1, 2, 3, 4, 5);
       ghr = new GameHistoryRecord("Test", 100, cal);
    }
@@ -38,6 +36,7 @@ public class GameHistoryRecordTest {
 
    @Test
    public void testGetDate() {
+      cal.set(Calendar.YEAR, 2020);
       assertEquals(2016, ghr.getDate().get(Calendar.YEAR));
       assertEquals(1, ghr.getDate().get(Calendar.MONTH));
       assertEquals(2, ghr.getDate().get(Calendar.DATE));
