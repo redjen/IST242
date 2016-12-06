@@ -36,6 +36,7 @@ public abstract class BasePanel extends JPanel {
         setLayout(layout);
         setUpGrid();
         setAppearance();
+        setFocusable(false);
     }
 
     /**
