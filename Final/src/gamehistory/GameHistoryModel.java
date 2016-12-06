@@ -11,18 +11,30 @@ public class GameHistoryModel {
 
    private ArrayList<GameHistoryRecord> history;
 
-   private final String HISTORY_FILE_PATH = "resources/history";
+   // this constant/field needs to be static because it's used in the empty
+   // constructor as a parameter to another constructor.
+   private final static String DEFAULT_HISTORY_FILE_PATH  = "resources/history.txt";
+   
+   private final String historyFilePath;
    private final int MAX_RECORDS = 20;
 
    public GameHistoryModel() {
       
-      history = new ArrayList<>();
+      this(DEFAULT_HISTORY_FILE_PATH);
 
    }
 
+   public GameHistoryModel(String historyFilePath) {
+      this.historyFilePath = historyFilePath;
+      history = new ArrayList<>();
+   }
+   
+   
+
    public void loadHistory() {
-      GameHistoryDAO dao = new GameHistoryDAO(HISTORY_FILE_PATH);
+      GameHistoryDAO dao = new GameHistoryDAO(historyFilePath);      
       history.addAll(dao.getHistory());
+      
    }
    
    /**
@@ -54,7 +66,7 @@ public class GameHistoryModel {
    }
    
    public void save() {
-      GameHistoryDAO dao = new GameHistoryDAO(HISTORY_FILE_PATH);
+      GameHistoryDAO dao = new GameHistoryDAO(historyFilePath);
       dao.writeHistory(history);
    }
 
