@@ -2,7 +2,6 @@ package game;
 
 import java.awt.Rectangle;
 import java.util.Calendar;
-import java.util.Observable;
 import java.util.Random;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -11,7 +10,7 @@ import java.util.logging.Logger;
  * The GameModel class is the model for the game.
  *
  */
-public class GameModel extends Observable {
+public class GameModel {
 
    /* Field size */
    private Rectangle field;
@@ -94,7 +93,7 @@ public class GameModel extends Observable {
     */
    public void incrementTouchdownScore() {
       touchdownScore++;
-      notifyObservers();
+
    }
 
    /**
@@ -111,7 +110,7 @@ public class GameModel extends Observable {
     */
    public void incrementTackleScore() {
       tackleScore++;
-      notifyObservers();
+
    }
 
    /**
@@ -120,7 +119,7 @@ public class GameModel extends Observable {
    public void resetScore() {
       touchdownScore = 0;
       tackleScore = 0;
-      notifyObservers();
+
    }
 
    /**
@@ -137,7 +136,7 @@ public class GameModel extends Observable {
     */
    public void resetClock() {
       clock.set(0, 0, 0, 0, 0, 0);
-      notifyObservers();
+
    }
 
    /**
@@ -145,7 +144,7 @@ public class GameModel extends Observable {
     */
    public void tickClock() {
       clock.add(Calendar.SECOND, 1);
-      notifyObservers();
+
    }
 
    /**
