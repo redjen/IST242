@@ -20,13 +20,9 @@ public class ScoreView extends BasePanel  {
     private final String ALTERNATE_TOUCHDOWN = "Sunny";
     private final String ALTERNATE_MISS = "Rainy";
         
-    private final GameModel gameModel;
-
-    public ScoreView(GameModel gameModel) {
+    public ScoreView() {
         super();
-
-        this.gameModel = gameModel;
-        
+ 
         touchdownCountTitle = new JLabel(DEFAULT_TOUCHDOWN, JLabel.CENTER);
         touchdownCountTitle.setForeground(new Color(96, 96, 102));
         touchdownCount = new JLabel("", JLabel.CENTER);
@@ -48,10 +44,6 @@ public class ScoreView extends BasePanel  {
         add(tackleCount, gbc);
         
         updateScore(0, 0);
-    }
-    
-    public ScoreView() {
-       this(null);
     }
 
     /**
