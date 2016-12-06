@@ -14,7 +14,7 @@ public class GameHistoryRecord implements Comparable<GameHistoryRecord> {
    private String name;
    private int score;
    private Calendar date;
-   private final String STRING_FORMAT = "%30s%5d%s";
+   private final String STRING_FORMAT = "%-10s%-5d%s";
    private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(("MM/dd/yyyy HH:mm:ss"));
 
    public GameHistoryRecord(String name, int score, Calendar date) {
