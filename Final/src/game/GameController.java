@@ -1,11 +1,14 @@
 package game;
 
+import gamehistory.GameHistoryController;
+import gamehistory.GameHistoryRecord;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -35,6 +38,7 @@ public class GameController {
    private RunningbackModel runningbackModel;
    private HashMap<PlayerModel, PlayerView> opponents;
    private PlayerOptionsController playerOptionsController;
+   private GameHistoryController gameHistoryController;
 
    private Timer gameTimer;
    private Timer clockTimer;
@@ -70,6 +74,9 @@ public class GameController {
 
       // initialize players
       initPlayers();
+
+      // start game history controller
+      gameHistoryController = new GameHistoryController();
 
       gameIsInProgress = false;
       messageView.showWelcomeMessage();
@@ -188,8 +195,14 @@ public class GameController {
                if (gameModel.detectTackleEvent(runningbackModel, opponents.keySet())) {
                   gameModel.incrementTackleScore();
                   scoreView.updateScore(gameModel.getTouchdownScore(), gameModel.getTackleScore());
-                  resetGame();
-                  messageView.showTackleMessage();
+
+                  if (gameModel.isChallengeMode()) {
+                     resetGameChallenge();
+                  } else {
+                     messageView.showTackleMessage();
+                     resetGame();
+                  }
+
                }
 
             }
@@ -245,9 +258,9 @@ public class GameController {
          public void itemStateChanged(ItemEvent e) {
             boolean state = (e.getStateChange() == ItemEvent.SELECTED);
             gameModel.setChallengeMode(state);
-            
-            if(state) {
-               
+
+            if (state) {
+
             }
          }
       });
@@ -346,6 +359,23 @@ public class GameController {
       pauseGame();
       resetPlayerPostions();
       gameIsInProgress = true;
+   }
+
+   private void resetGameChallenge() {
+      Calendar cal = Calendar.getInstance();
+      int score = gameModel.getTouchdownScore();
+      String history = gameHistoryController.getHistoryAsString();
+      
+      String name = messageView.showGameOverMessage(history);
+      
+      if (name != null && !name.equals("")) {
+         gameHistoryController.addHighScore(name, score, cal);
+      }
+      gameModel.resetScore();
+      scoreView.updateScore(0, 0);
+      gameModel.resetClock();
+      clockView.resetClock();
+      resetGame();
    }
 
    /**

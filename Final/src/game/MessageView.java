@@ -30,12 +30,27 @@ public class MessageView {
    /**
     * Shows the game over message and prompts the user for their name.
     *
+    * @param topScores Previous top scores
+    * @return the user's input
+    */
+   public String showGameOverMessage(String topScores) {
+      String name = JOptionPane.showInputDialog(null, 
+              "<html><body><p>Please enter your name.</p>"
+              + "<pre>" + topScores + "</pre>"
+              + "</body></html>",
+              "Game over!", 0);
+      return name;
+   }
+   
+   /**
+    * Shows the game over message and prompts the user for their name.
+    *
     * @return the user's input
     */
    public String showGameOverMessage() {
-      String name = JOptionPane.showInputDialog(null, "Please enter your name.", "Game over!", 0);
-      return name;
+      return showGameOverMessage("");
    }
+   
    
    public void showTouchdownMessage() {
       JOptionPane.showMessageDialog(null, "Touchdown!", "", JOptionPane.INFORMATION_MESSAGE);
