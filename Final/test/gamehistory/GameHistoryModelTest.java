@@ -45,5 +45,9 @@ public class GameHistoryModelTest {
       assertEquals(25, list.get(1).getScore());
    }
 
-   
+   @Test
+   public void testToStringEmpty() {
+      GameHistoryModel empty = new GameHistoryModel();
+      assertEquals("", empty.toString());
+   }
 }
