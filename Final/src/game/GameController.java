@@ -141,6 +141,7 @@ public class GameController {
             gameModel.incrementTouchdownScore();
             scoreView.updateScore(gameModel.getTouchdownScore(), gameModel.getTackleScore());
             resetGame();
+            messageView.showTouchdownMessage();
          }
       }
 
@@ -188,6 +189,7 @@ public class GameController {
                   gameModel.incrementTackleScore();
                   scoreView.updateScore(gameModel.getTouchdownScore(), gameModel.getTackleScore());
                   resetGame();
+                  messageView.showTackleMessage();
                }
 
             }

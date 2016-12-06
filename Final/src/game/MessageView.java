@@ -40,6 +40,10 @@ public class MessageView {
    public void showTouchdownMessage() {
       JOptionPane.showMessageDialog(null, "Touchdown!", "", JOptionPane.INFORMATION_MESSAGE);
    }
+   
+   public void showTackleMessage() {
+      JOptionPane.showMessageDialog(null, "Tackle!", "", JOptionPane.INFORMATION_MESSAGE);
+   }
 
    public void showChallengeModeStartMesage() {
       // TODO
