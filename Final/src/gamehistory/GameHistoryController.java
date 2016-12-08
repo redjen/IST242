@@ -24,6 +24,10 @@ public class GameHistoryController {
       
    }
    
+   public int getLowScore() {
+      return history.getLowScore();
+   }
+   
    public int getHighScore() {
       return history.getHighScore();
    }

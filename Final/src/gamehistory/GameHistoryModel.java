@@ -44,7 +44,19 @@ public class GameHistoryModel {
       if (history.size() > 0) {
          return history.get(0).getScore();
       } else {
-         return -1;
+         return 0;
+      }
+   }
+   
+   /**
+    * REturns the lowest saved score.
+    * @return the lowest score.
+    */
+   public int getLowScore() {
+      if (history.size() > 0) {
+         return history.get(history.size() - 1).getScore();
+      } else {
+         return 0;
       }
    }
 

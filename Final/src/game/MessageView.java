@@ -21,7 +21,7 @@ public class MessageView {
               + "before you're tackled!</li>"
               + "<li><b>High score log:</b> the game will now keep a history of "
               + "the last 20 high scores.</li>"
-              + "<li><b>Unit tests:</b> the game history classes are now tested.</li>"
+              + "<li><b>Unit tests:</b> the game history classes are all tested.</li>"
               + "</ol>"
               + "<p>Press space after dismissing this message to begin the game</p></body></html>",
               "Welcome!", JOptionPane.INFORMATION_MESSAGE);
@@ -36,15 +36,14 @@ public class MessageView {
     */
    public String showGameOverMessage(boolean newHighScore, String topScores) {
       String title = "Game over!";
-      String namePrompt = "<p>Please enter your name to save your score:</p>";
       String name = null;
 
       if (newHighScore) {
 
          name = JOptionPane.showInputDialog(null,
 
-                 topScores,
-                 title + "Please enter your name to save", 0);
+                 "Please enter your name to save.\n" + topScores,
+                 title, 0);
       } else {
          JOptionPane.showMessageDialog(null, topScores, title, JOptionPane.INFORMATION_MESSAGE);
       }
