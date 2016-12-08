@@ -38,6 +38,7 @@ public class GameHistoryModelTest {
 
    @Test
    public void testGetHistory() {
+      ghm.clearHistory();
       ghm.addRecord(rec1);
       ghm.addRecord(rec2);
       
