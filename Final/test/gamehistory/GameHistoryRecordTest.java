@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 public class GameHistoryRecordTest {
    
+   // Have to be static to use in static methods.
    private static GameHistoryRecord ghr;
    private static Calendar cal;
    
