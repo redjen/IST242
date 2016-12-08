@@ -29,8 +29,8 @@ public class GameHistoryController {
    }
    
    public String getHistoryAsString() {
-      String historyList = "";
-      historyList = history.toString();
+      String historyList = "High scores:\n";
+      historyList += history.toString();
       return historyList;
    }
    
