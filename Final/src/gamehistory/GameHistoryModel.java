@@ -13,43 +13,41 @@ public class GameHistoryModel {
 
    // this constant/field needs to be static because it's used in the empty
    // constructor as a parameter to another constructor.
-   private final static String DEFAULT_HISTORY_FILE_PATH  = "resources/history.txt";
-   
+   private final static String DEFAULT_HISTORY_FILE_PATH = "resources/history.txt";
+
    private final String historyFilePath;
    private final int MAX_RECORDS = 20;
 
    public GameHistoryModel() {
-      
+
       this(DEFAULT_HISTORY_FILE_PATH);
 
-   }
-   
-   /**
-    * Returns the high score.
-    * 
-    * @return the highest saved score
-    */
-   public int getHighScore() {
-      if (history.size() > 0) {
-         return history.get(0).getScore();
-      } else {
-         return 0;
-      }
    }
 
    public GameHistoryModel(String historyFilePath) {
       this.historyFilePath = historyFilePath;
       history = new ArrayList<>();
    }
-   
-   
 
    public void loadHistory() {
-      GameHistoryDAO dao = new GameHistoryDAO(historyFilePath);      
+      GameHistoryDAO dao = new GameHistoryDAO(historyFilePath);
       history.addAll(dao.getHistory());
-      
+
    }
-   
+
+   /**
+    * Returns the high score.
+    *
+    * @return the highest saved score
+    */
+   public int getHighScore() {
+      if (history.size() > 0) {
+         return history.get(0).getScore();
+      } else {
+         return -1;
+      }
+   }
+
    /**
     * Adds a new record to the history.
     *
@@ -77,10 +75,14 @@ public class GameHistoryModel {
       ArrayList<GameHistoryRecord> copy = new ArrayList<>(history);
       return copy;
    }
-   
+
    public void save() {
       GameHistoryDAO dao = new GameHistoryDAO(historyFilePath);
       dao.writeHistory(history);
+   }
+
+   public void clearHistory() {
+      history.clear();
    }
 
    @Override

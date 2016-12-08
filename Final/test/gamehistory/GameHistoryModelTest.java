@@ -2,6 +2,7 @@ package gamehistory;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,6 +21,7 @@ public class GameHistoryModelTest {
       
       
    }
+   
    
    @BeforeClass
    public static void setUp() {
@@ -50,4 +52,30 @@ public class GameHistoryModelTest {
       GameHistoryModel empty = new GameHistoryModel();
       assertEquals("", empty.toString());
    }
+   
+   @Test
+   public void testGetHighScore() {
+      Calendar cal = Calendar.getInstance();
+      GameHistoryRecord recHighest = new GameHistoryRecord("Test 2", 100, cal);
+      ghm.addRecord(rec1);
+      ghm.addRecord(rec2);
+      ghm.addRecord(recHighest);
+      assertEquals(100, ghm.getHighScore());
+   }
+   
+   @Test
+   public void testKeep20() {
+      ghm.clearHistory();
+      assertEquals(0, ghm.getHistory().size());
+      Calendar cal = Calendar.getInstance();
+      for (int i = 21; i >= 0; i--) {
+         GameHistoryRecord rec = new GameHistoryRecord("test" + i, i, cal);
+         ghm.addRecord(rec);
+      }
+      assertEquals(21, ghm.getHighScore());
+      ArrayList<GameHistoryRecord> list = ghm.getHistory();
+      assertEquals(2, list.get(list.size() - 1).getScore());
+      assertEquals(20, list.size());
+   }
+   
 }
