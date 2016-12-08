@@ -20,11 +20,15 @@ public class PlayerModel {
    private Rectangle bounds;
    private int moveDistance;
 
-   public PlayerModel(String iconLocation) {
+   public PlayerModel(String iconLocation, int moveDistanceWeight) {
       this.iconLocation = iconLocation;
       
       bounds = new Rectangle(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-      moveDistance = DEFAULT_MOVE_DISTANCE;
+      moveDistance = DEFAULT_MOVE_DISTANCE * moveDistanceWeight;
+   }
+   
+   public PlayerModel(String iconLocation) {
+      this(iconLocation, 1);
    }
 
    /**

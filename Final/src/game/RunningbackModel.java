@@ -20,7 +20,7 @@ public class RunningbackModel extends PlayerModel {
    private final static Logger logger = Logger.getLogger("RunningbackModel");
 
    public RunningbackModel(String iconLocation) {
-      super(iconLocation);
+      super(iconLocation, 2);
 
       fast = false;
       agile = false;
