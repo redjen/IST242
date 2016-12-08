@@ -19,7 +19,7 @@ public class GameModel {
    private final double FIELD_START_Y_SCALE = 0.054;
    private final double FIELD_WIDTH_SCALE = 0.9475;
    private final double FIELD_HEIGHT_SCALE = 0.8891;
-   private final double END_ZONE_X_SCALE = 0.895;
+   private final double END_ZONE_X_SCALE = 0.9;
 
    /* Score */
    private int touchdownScore;
