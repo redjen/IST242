@@ -91,6 +91,7 @@ public class GameOptionsView extends BasePanel {
       gbc.gridx++;
 
       PlayerOptionButton button = new PlayerOptionButton(label, toolTip);
+      button.setFocusable(false);
       add(button, gbc);
 
       return button;

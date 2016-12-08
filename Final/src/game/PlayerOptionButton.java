@@ -31,6 +31,7 @@ public class PlayerOptionButton extends JToggleButton {
       setBackground(new Color(255, 255, 255, 200));
       setToolTipText(toolTip);
       setVisible(true);
+      setFocusable(false);
    }
 
    // Set the button's color depending on its selection state.
